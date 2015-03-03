@@ -22,13 +22,27 @@ var ttl = 1000 * 60 * 60 * 6;
 
 var router = Router()
 router.get('/posted/:id', function(req, res){
-  console.log(req.params.id)
   db.get('posted!' +  req.params.id, 
     function(err, data){
-      console.log(err, data)
       var key = data
       var rs = db.createReadStream({gte:key, lt:key+'~'})
       tinplate(req, res, rs)
+    }
+  )
+})
+router.get('/bounce/:id', function(req, res){
+  db.get('posted!' +  req.params.id, 
+    function(err, key){
+      db.get(key, function(err, data){
+        data = JSON.parse(data)
+        var own = req.session.id === data.session.id
+        if(own){
+          db.del('posted!' + req.params.id)
+          db.del(key)
+        }
+        res.writeHead(307, {'Location':'/'})
+        res.end()
+      })
     }
   )
 })
@@ -49,31 +63,11 @@ var server = http.createServer(function(req, res){
               JSON.stringify(body),
               {ttl: ttl}
             )
-            console.log(body.id, key)
             db.put('posted!'+ body.id, key, {ttl: ttl}) 
-            res.end('HOPE THIS HELPS')
+            res.writeHead(307, {'Location':'/'})
+            res.end()
           }
         })    
-      }
-      else if(req.url == '/messages'){
-        if(req.method == 'POST'){
-          body(req, res, function(err, body){
-            if (body.pass == arg.pass){
-                var r = db.createReadStream({
-                gt: 'messages!',
-                lt: 'messages!~'
-              })
-              r.pipe(through2.obj(
-                function(row, enc, next){
-                  this.push(row.value + '\n')
-                  next()
-                }
-              )).pipe(res)
-            }
-            else res.writeHead(304, {'Location':'/messages'})
-          })
-        }
-        else stat(req, res)
       }
       else if(!(req.url === '/')) stat(req, res)
       else {
@@ -87,10 +81,9 @@ var server = http.createServer(function(req, res){
         r.pipe(through(
           function(data){
             var data = JSON.parse(data.value)
-            console.log(data)
             var own = req.session.id === data.session.id
             hacker.write({
-               '[key=bounce]': own ? '<a class=bounce href=/posted/'+data.id+'>bounce</a>' : '',
+               '[key=bounce]': own ? '<a class=bounce href=/bounce/'+data.id+'>bounce</a>' : '',
               '[key=handle]':'<a class=alias href=/posted/'+data.id+'>@'+data.handle+'</a>',
               '[key=hourly]':data.hourly,
               '[key=buzzwords]':data.buzzwords
@@ -112,10 +105,9 @@ function tinplate(req, res, db){
   db.pipe(through(
     function(data){
       var data = JSON.parse(data.value)
-      console.log(data)
       var own = req.session.id === data.session.id
       hacker.write({
-         '[key=bounce]': own ? '<a class=bounce href=/posted/'+data.id+'>bounce</a>' : '',
+         '[key=bounce]': own ? '<a class=bounce href=/bounce/'+data.id+'>bounce</a>' : '',
         '[key=handle]':data.handle,
         '[key=hourly]':data.hourly,
         '[key=buzzwords]':data.buzzwords,
