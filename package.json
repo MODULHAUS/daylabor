@@ -1,8 +1,8 @@
 {
-  "name": "modulha.us",
+  "name": "hacker-daylabor",
   "version": "0.0.0",
   "description": "future website data",
-  "main": ".testqr.js",
+  "main": "xerver.js",
   "dependencies": {
     "body": "^5.0.0",
     "cookies": "^0.5.0",

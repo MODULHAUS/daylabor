@@ -15,12 +15,18 @@ var Router = require('router')
 var createdb = require('./lib/db')
 var db = createdb('messages', true) // TTL
 var sessionStore = require('./lib/sessions.js')(createdb('sessions'), true)
-
-
 //bind(arg.p)
 //process.setgid(arg.g)
 //process.setuid(arg.u)
 var ttl = 1000 * 60 * 60 * 6;
+
+module.exports = function(dbx){
+  var createdb = dbx 
+  var db = createdb('messages', true) // TTL
+  var sessionStore = require('./lib/sessions.js')(createdb('sessions'), true)
+  return server
+}
+
 
 var router = Router()
 router.get('/posted/:id', function(req, res){
@@ -49,7 +55,7 @@ router.get('/bounce/:id', function(req, res){
   )
 })
 
-var server = http.createServer(function(req, res){
+function server (req, res){
   sessionStore(req, res, function(){
     router(req, res, function(){
       if(req.method == 'POST' && req.url == '/contact'){
@@ -96,9 +102,8 @@ var server = http.createServer(function(req, res){
       }
     })
   })
-})
+}
 
-server.listen(11005)
 
 function tinplate(req, res, db){
   var html = template()
