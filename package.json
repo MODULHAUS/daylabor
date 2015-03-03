@@ -1,0 +1,33 @@
+{
+  "name": "modulha.us",
+  "version": "0.0.0",
+  "description": "future website data",
+  "main": ".testqr.js",
+  "dependencies": {
+    "body": "^5.0.0",
+    "cookies": "^0.5.0",
+    "domready": "^1.0.7",
+    "ecstatic": "^0.6.0",
+    "html-template": "^1.2.1",
+    "jtype": "^0.3.0",
+    "keygrip": "^1.0.1",
+    "level": "^0.18.0",
+    "level-sublevel": "^6.4.6",
+    "level-ttl": "^3.0.0",
+    "marked": "^0.3.3",
+    "minimist": "^1.1.0",
+    "router": "^1.0.0",
+    "sublevel": "^2.4.0",
+    "tcp-bind": "^1.2.0",
+    "through": "^2.3.6",
+    "through2": "^0.6.3",
+    "uuid": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

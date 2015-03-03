@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hacker Day Labor</title>
+    <base href="http://localhost:11005">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="site.css" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div id=markup><h1 id="post-up">Post Up</h1>
+<p>All posts have a 6 hour TTL.  You can delete your active entries by clicking <strong>bounce</strong> on the <a href="/">main page</a>.  Retarding posts may be deleted.</p>
+<div id="post">
+  <form id="postUp" action="/contact" method="POST">
+    <label for="handle">Name, aka Alias</label>
+    <input type="text" id="handle" name="handle" placeholder="zero kill"></input>
+    <Label>Which payment methods do you accept?</label>
+    <br />
+    <input type="checkbox" name="bitcoin" id="bitcoin" checked>
+      <label for="bitcoin">Bitcoin</label></input>
+    <input type="checkbox" name="cash" id="cash" checked>
+      <label for="cash">Cash</label></input>
+    <input type="checkbox" name="credit" id="credit" checked>
+      <label for="credit">Credit Cards</label></input>
+    <input type="checkbox" name="checks" id="checks" >
+      <label for="checks">Checks</label></input>
+    <br/>
+    <label for="buzzwords">Comma Separated Buzzwords.  <span>110 char max</span></label>
+    <input type="text" id="buzzwords" name="buzzwords" placeholder="javascript, html, css, crypto"></input>
+    <label for="info">Gloats, Boasts, n Infoz. <span>330 char max</span></label>
+    <textarea name="info" id="info" rows="11" cols="80" placeholder="# Markdown Supported"></textarea>
+    <button id="sumbit">Post Up</button>
+    <p><span id="chars">0</span> of 330 characters used</p>
+  </form>
+</div>
+</div>
+    <div id="list" style="display:none;">
+      <ul id="laybros">
+        <li template="hacker">
+          <h3 key="handle"></h3>
+          <h4 key="hourly"></h3>
+          <p key="buzzwords"></p>
+          <p key="info"></p>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script type="text/javascript" src="bundle.js"></script>
+</html>

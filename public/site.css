@@ -1,0 +1,227 @@
+@import url(http://fonts.googleapis.com/css?family=Orbitron:900|VT323);
+html{
+  height:100%;
+  font-size: 16px;
+}
+body{
+  min-height:100%;
+  visibility: hidden;
+  width: 100%;
+  background-image:  -webkit-radial-gradient(50% 50%, rgba(248,249,243,1), rgba(123,123,123,0.77));
+  background-image:  radial-gradient(50% 50%, rgba(248,249,243,1), rgba(123,123,123,0.77));
+  font-family: "VT323", courier;
+  padding-bottom: 99px;
+  background-position: 0px 0px center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+label{
+  font-family: "VT323";
+  font-size: 200%;
+}
+label > span{
+  font-size:67%;
+}
+input[type=text]{
+  width: 67%;
+  display:block;
+  margin: 11px 0 33px 0;
+  padding:11px;
+}
+input[name=bitcoin]{
+  margin: 11px 3px 31px 3px;
+}
+label[for=bitcoin]{
+}
+
+textarea, input{
+  font-size: 200%;
+  margin: 11px 0 ;
+}
+#contactButton{
+  font-size: 200%
+}
+#james-halliday{
+  text-align:left;
+  margin-left: 0px;
+}
+
+#johnny-honestly{
+  text-align: right;
+  margin-right: 0;
+}
+
+#markup, #list{
+  padding:7px;
+  width:960px;
+  margin: 0 auto;
+}
+p img{
+  width: 267px;
+  float:right;
+  margin-left: 21px;
+  margin-bottom: 11px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg)
+}
+p img[alt="iojs"]{
+  border: none;
+  float: none;
+  display: block;
+  clear: both;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  margin: 0 auto;
+  width: 50%;
+  
+}
+p img[alt="binary"]{
+  border: none;
+  float:right;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  width: 200px;
+  -webkit-filter: hue-rotate(90deg);
+          filter: hue-rotate(90deg);
+}
+p img[alt="leeebron"]{
+  border: none;
+  margin-right:21px;
+  width:200px;
+  float:left;
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0)
+}
+p img[alt="hackety hack hack hack"]{
+  float: left;
+  margin-right: 21px;
+  margin-bottom: 11px;
+  margin-left:0;
+}
+p{
+  font-family: 'VT323';
+  font-size: 32px;
+  color: #010;
+  line-height: 37px;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'VT323', courier; 
+  text-align: center;
+}
+h1{
+  font-size: 4rem;
+  text-shadow: 0 0 7px rgba(216, 55, 204, 1);
+}
+h2{
+  font-size: 3.333rem;
+  text-align: left;
+}
+h3{
+  font-size: 2.666rem;
+}
+h4{
+  font-size: 1.999rem;
+}
+
+a, a:visited {
+  color: #010;
+  text-shadow: 0 0 3px rgba(50, 216, 26, 1) 
+}
+
+img{
+  border: 3px solid rgba(250, 216, 126, 1);
+
+}
+ul{
+  list-style: none;
+  padding:0;
+}
+li{
+  margin: 11px 0;
+  padding:0
+}
+.profile {
+  width:100%;
+  padding:7px;
+}
+.profile *{
+  text-align:left;
+}
+fieldset{
+}
+legend{
+}
+.buzzwords{
+
+  padding:21px;
+}
+.handle, .alias{
+  padding: 0 11px;
+}
+.alias, .bounce{
+  font-size:1.333rem;
+  font-family: 'Courier';
+}
+.hourly{
+  display:none;
+}
+.info{
+  display:none;
+  padding:0 21px;
+}
+@-webkit-keyframes flameon {
+  100%{
+    text-shadow: 0 15px 15px rgba(240, 30, 30, .37), 
+    0 -5px 15px rgba(250, 216, 126, 1),
+    -7px 0 15px rgba(250, 216, 126, 1),
+    7px 0 15px rgba(250, 166, 126, 1);
+  }
+  66%{
+    text-shadow: 0 15px 15px rgba(250, 166, 126, 1), 
+    0 -5px 15px rgba(240, 30, 30, .67),
+    -7px 0 15px rgba(250, 216, 126, 1),
+    7px 0 15px rgba(250, 216, 126, 1);
+  }
+  33%{
+    text-shadow: 0 15px 15px rgba(250, 216, 126, 1), 
+    0 -5px 15px rgba(250, 166, 126, 1),
+    -7px 0 15px rgba(240, 30, 30, .67),
+    7px 0 15px rgba(250, 116, 126, 1);
+  }
+  0%{
+    text-shadow: 0 15px 15px rgba(250, 216, 126, 1), 
+    0 -5px 15px rgba(250, 216, 126, 1),
+    -7px 0 15px rgba(250, 166, 126, 1),
+    7px 0 15px rgba(240, 30, 30, ,67);
+  }
+}
+
+@keyframes flameon {
+  100%{
+    text-shadow: 0 15px 15px rgba(240, 30, 30, .37), 
+    0 -5px 15px rgba(250, 216, 126, 1),
+    -7px 0 15px rgba(250, 216, 126, 1),
+    7px 0 15px rgba(250, 166, 126, 1);
+  }
+  66%{
+    text-shadow: 0 15px 15px rgba(250, 166, 126, 1), 
+    0 -5px 15px rgba(240, 30, 30, .67),
+    -7px 0 15px rgba(250, 216, 126, 1),
+    7px 0 15px rgba(250, 216, 126, 1);
+  }
+  33%{
+    text-shadow: 0 15px 15px rgba(250, 216, 126, 1), 
+    0 -5px 15px rgba(250, 166, 126, 1),
+    -7px 0 15px rgba(240, 30, 30, .67),
+    7px 0 15px rgba(250, 116, 126, 1);
+  }
+  0%{
+    text-shadow: 0 15px 15px rgba(250, 216, 126, 1), 
+    0 -5px 15px rgba(250, 216, 126, 1),
+    -7px 0 15px rgba(250, 166, 126, 1),
+    7px 0 15px rgba(240, 30, 30, ,67);
+  }
+}
