@@ -43,7 +43,7 @@ readyGo(function(){
           e.preventDefault()
           self.value = self.value.slice(0,count)
         }
-        chars.textContent = self.value.length 
+//        chars.textContent = self.value.length 
       },0)
     }
   }

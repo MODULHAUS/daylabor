@@ -8,9 +8,8 @@ All posts have a 6 hour TTL.  You can delete your active entries by clicking __b
     <input type="text" id="handle" maxlength="30" name="handle" placeholder="Zero Dinero"></input>
     <label for="buzzwords">Comma Separated Buzzwords.  <span>110 char max</span></label>
     <input type="text" id="buzzwords" name="buzzwords" placeholder="javascript, html, css, crypto"></input>
-    <label for="info">Gloats, Boasts, n Infoz. <span>330 char max</span></label>
+    <label for="info">Hype + Info <span>330 char max</span></label>
     <textarea name="info" id="info" rows="11" cols="80" placeholder="# Markdown Supported"></textarea>
-    <p><span id="chars">0</span> of 330 characters used</p>
     <Label>Which payment methods do you accept?</label>
     <br />
     <input type="checkbox" name="bitcoin" id="bitcoin" checked>
