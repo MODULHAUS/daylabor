@@ -98,7 +98,7 @@ var server = http.createServer(function(req, res){
   })
 })
 
-server.listen(11005)
+server.listen(arg.p)
 
 function tinplate(req, res, db){
   var html = template()
