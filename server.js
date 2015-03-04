@@ -17,9 +17,9 @@ var db = createdb('messages', true) // TTL
 var sessionStore = require('./lib/sessions.js')(createdb('sessions'), true)
 
 
-//bind(arg.p)
-//process.setgid(arg.g)
-//process.setuid(arg.u)
+var fd = bind(arg.p)
+process.setgid(arg.g)
+process.setuid(arg.u)
 var ttl = 1000 * 60 * 60 * 6;
 
 var router = Router()
@@ -98,7 +98,7 @@ var server = http.createServer(function(req, res){
   })
 })
 
-server.listen(arg.p)
+server.listen({fd:fd})
 
 function tinplate(req, res, db){
   var html = template()
