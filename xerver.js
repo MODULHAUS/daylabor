@@ -12,9 +12,9 @@ var arg = require('minimist')(process.argv)
 var Router = require('router')
 
 
-var createdb = require('./lib/db')
-var db = createdb('messages', true) // TTL
-var sessionStore = require('./lib/sessions.js')(createdb('sessions'), true)
+//var createdb = require('./lib/db')
+//var db = createdb('messages', true) // TTL
+//var sessionStore = require('./lib/sessions.js')(createdb('sessions'), true)
 //bind(arg.p)
 //process.setgid(arg.g)
 //process.setuid(arg.u)
