@@ -155,6 +155,7 @@ fieldset{
 legend{
 }
 .buzzwords{
+  margin:0;
   padding:0 21px 21px;
 }
 .handle, .alias{
