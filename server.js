@@ -26,9 +26,15 @@ var router = Router()
 router.get('/posted/:id', function(req, res){
   db.get('posted!' +  req.params.id, 
     function(err, data){
-      var key = data
-      var rs = db.createReadStream({gte:key, lt:key+'~'})
-      tinplate(req, res, rs)
+      if(data){
+        var key = data
+        var rs = db.createReadStream({gte:key, lt:key+'~'})
+        tinplate(req, res, rs)
+      }
+      else {
+        res.writeHead(307, {'Location':'/'})
+        res.end()
+      } 
     }
   )
 })
@@ -60,14 +66,21 @@ var server = http.createServer(function(req, res){
             body.id = uuid.v1()
             var now = new Date().toISOString()
             var key = 'messages!' + now + '!' + body.session.id
-            db.put(
-              key,
-              JSON.stringify(body),
-              {ttl: ttl}
-            )
-            db.put('posted!'+ body.id, key, {ttl: ttl}) 
-            res.writeHead(307, {'Location':'/'})
-            res.end()
+            db.batch([
+            { 
+              type: 'put',
+              key: key,
+              value: JSON.stringify(body)
+            },
+            { 
+              type: 'put',
+              key: 'posted!'+ body.id, 
+              value: key
+            },
+            ],{ttl: ttl}, function(){
+              res.writeHead(307, {'Location':'/'})
+              res.end()
+            }) 
           }
         })    
       }
@@ -103,7 +116,7 @@ server.listen({fd:fd})
 function tinplate(req, res, db){
   var html = template()
   var hacker = html.template('hacker')
-  fs.createReadStream(__dirname + '/public/index.html').pipe(html).pipe(res)
+  fs.createReadStream(__dirname + '/templates/post.html').pipe(html).pipe(res)
   db.pipe(through(
     function(data){
       var data = JSON.parse(data.value)
