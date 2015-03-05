@@ -170,6 +170,7 @@ legend{
 }
 .info{
   display:none;
+  margin-top;0;
   padding:0 21px;
 }
 @-webkit-keyframes flameon {
