@@ -1,4 +1,4 @@
-<h1> hacker day labor</h1>
+<h1>day labor nerds</h1>
 
 Know what you need __today__?  Wish you had it __yesterday__?  Get it ___right now!___
 
